@@ -1,8 +1,8 @@
 // файл для авторизованных пользователей
 import { getRandomUser } from "./common.js";
-const fs = require("node:fs");
+import { promises as fs } from "fs";
 
-const USER_FILE_PATH = "../user.txt";
+const USER_FILE_PATH = "user.txt";
 
 export function saveUser(user) {
   const content = JSON.stringify(user);
@@ -16,15 +16,13 @@ export function saveUser(user) {
   });
 }
 
-export function useUser() {
-  fs.readFile(USER_FILE_PATH, "utf8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
+export async function useUser() {
+  let userData = null;
 
-    return JSON.parse(data);
-  });
+  const data = await fs.readFile(USER_FILE_PATH);
+  userData = JSON.parse(Buffer.from(data));
+
+  return userData;
 }
 
 export async function useLogin(driver, _user = null) {

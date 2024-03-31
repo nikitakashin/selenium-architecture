@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npx mocha --timeout 60000",
     "testweb": "npx mocha ./test/seleniumWEB.js --timeout 60000",
+    "t": "npx mocha ./check-lists/test-runner.js --timeout 60000",
     "testfgr": "npx mocha ./test/registrationFGR.js --timeout 60000",
     "testkatalogfgr": "npx mocha ./test/katalogFGR.js --timeout 60000"
   },

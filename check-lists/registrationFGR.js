@@ -4,7 +4,7 @@ import {
   hoverOverElement,
   isMatchedPathName,
   hasQueryParam,
-} from "../utils/common.js";
+} from "@/utils/common.js";
 import { getRandomUser, dropdownButtons } from "../utils/common.js";
 
 // эл-ты dropdown
